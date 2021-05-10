@@ -1,0 +1,122 @@
+﻿@model IEnumerable<SG_ASP_2.Models.Atenciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Local0)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipExa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecAte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomApe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocIde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proyec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Perfil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PueTra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PeReAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medico)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+    <div>
+        @switch (Model.Count())
+        {
+       
+            default:
+               @Html.ActionLink("Medicina","Medicina", new { id = item.Id },htmlAttributes: new {@class= "btn btn-outline-success btn-sm" } )
+                break;
+        }
+    </div>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Local0)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipExa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FecAte)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NomApe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DocIde)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Empres)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SubCon)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Proyec)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Perfil)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Area)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PueTra)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PeReAd)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hora)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Medico)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
