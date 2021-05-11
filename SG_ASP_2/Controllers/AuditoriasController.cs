@@ -37,11 +37,29 @@ namespace SG_ASP_2.Controllers
         }
 
         // GET: Auditorias/Create
-        public ActionResult Create()
+        public ActionResult Create(int Id)
         {
-            ViewBag.IdAtenciones = new SelectList(db.Atenciones, "IdAtenciones", "Local0");
+
+            ViewBag.IdAtenciones = Id;
             ViewBag.IdMedico = new SelectList(db.Medicos, "IdMedico", "NomApe");
-            return View();
+            var aten = db.Atenciones.Find(Id);
+            var audi = new Auditoria();
+            audi.IdAtenciones = aten.IdAtenciones;
+
+            audi.HorAud = TimeSpan.Parse(DateTime.Now.ToShortTimeString());
+            audi.FecAud = DateTime.Parse(DateTime.Now.ToShortDateString());
+            /**/
+
+            var AllExam = from t in db.ExaMedicoes select t;
+            AuditoriaViewModel viewModel = new AuditoriaViewModel(audi, AllExam.ToList());
+            /**/
+            ViewBag.AtenId = Id;
+            ViewBag.DocIde = aten.DocIde;
+            ViewBag.NomApe = aten.NomApe;
+            ViewBag.Empres = aten.Empres;
+            
+
+            return View(viewModel);
         }
 
         // POST: Auditorias/Create
