@@ -64,10 +64,12 @@ namespace SG_ASP_2.Models
 
         public  virtual ICollection<Medicina> Medicina { get; set; }
         public virtual ICollection<Interconsulta> Interconsultas { get; set; }
+        public virtual ICollection<Auditoria>  Auditorias{ get; set; }
         public Atenciones() 
         {
-            Medicina = new HashSet<Medicina>();
+            Medicina = new HashSet<Medicina> ();
             Interconsultas = new HashSet<Interconsulta>();
+            Auditorias = new HashSet<Auditoria>();
         }
 
     }

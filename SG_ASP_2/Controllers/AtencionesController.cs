@@ -20,7 +20,9 @@ namespace SG_ASP_2.Controllers
         #region scaffolding
         public ActionResult Index()
         {
-            return View(db.Atenciones.ToList());
+            var atenciones = db.Atenciones.ToList();
+
+            return View(atenciones);
         }
 
         // GET: Atenciones/Details/5

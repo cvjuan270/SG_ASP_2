@@ -11,7 +11,6 @@ namespace SG_ASP_2.Models
     {
         [Key]
         public int IdAudi { get; set; }
-
         public int IdAtenciones { get; set; }
 
         [Display(Name = "Examenes Incompletos")]
@@ -101,5 +100,10 @@ namespace SG_ASP_2.Models
         public virtual ICollection<ExaMedico> ExaMedicos { get; set; }
         public virtual Atenciones Atenciones { get; set; }
         public virtual Medico Medico { get; set; }
+
+        public Auditoria() 
+        {
+            ExaMedicos = new HashSet<ExaMedico>();
+        }
     }
 }

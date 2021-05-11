@@ -67,19 +67,30 @@ namespace SG_ASP_2.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdAudi,IdAtenciones,ExaCom,ExaCom1,DatInc,DatInc1,AptErr,AptErr1,FaFiMe,FaFiMe1,FaFiPa,FaFiPa1,Restri,Restri1,Contro,Contro1,Diagno,Diagno1,ErrLle,ErrLle1,ObNoRe,EmSnOb,EmSnOb1,HorAud,FecAud,UserName,IdMedico,OmiInt,OmiInt1")] Auditoria auditoria)
+
+        public ActionResult Create(AuditoriaViewModel auditoriaViewModel, int IdMedico)
         {
+            Auditoria auditoria = auditoriaViewModel.auditoria;
+            auditoria.IdMedico = IdMedico;
             if (ModelState.IsValid)
             {
+                if (auditoriaViewModel.SelectExaMed != null)
+                {
+                    foreach (var item in auditoriaViewModel.SelectExaMed)
+                    {
+                        ExaMedico exaMedico = db.ExaMedicoes.Where(t => t.IdExMed == item).First();
+                        auditoria.ExaMedicos.Add(exaMedico);
+                    }
+                }
+                
                 db.Auditorias.Add(auditoria);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Atenciones");
             }
 
-            ViewBag.IdAtenciones = new SelectList(db.Atenciones, "IdAtenciones", "Local0", auditoria.IdAtenciones);
-            ViewBag.IdMedico = new SelectList(db.Medicos, "IdMedico", "NomApe", auditoria.IdMedico);
             return View(auditoria);
         }
+
 
         // GET: Auditorias/Edit/5
         public ActionResult Edit(int? id)
