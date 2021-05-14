@@ -28,12 +28,12 @@ namespace SG_ASP_2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Auditoria auditoria = db.Auditorias.Find(id);
-            if (auditoria == null)
+            Atenciones atenciones = db.Atenciones.Find(id);
+            if (atenciones.Auditorias == null)
             {
                 return HttpNotFound();
             }
-            return View(auditoria);
+            return View(atenciones.Auditorias.First());
         }
 
         // GET: Auditorias/Create
@@ -153,6 +153,10 @@ namespace SG_ASP_2.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Atenciones() 
+        {
+            return RedirectToAction("Index", "Atenciones");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

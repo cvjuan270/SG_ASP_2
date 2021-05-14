@@ -23,18 +23,18 @@ namespace SG_ASP_2.Controllers
         }
 
         // GET: Medicina/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? Id)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Medicina medicina = db.Medicinas.Find(id);
-            if (medicina == null)
+            Atenciones atenciones = db.Atenciones.Find(Id);
+            if (atenciones.Medicina== null)
             {
                 return HttpNotFound();
             }
-            return View(medicina);
+            return View(atenciones.Medicina.First());
         }
 
         // GET: Medicina/Create

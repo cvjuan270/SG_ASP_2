@@ -170,9 +170,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdmisionController.cs" />
     <Compile Include="Controllers\AptitudsController.cs" />
     <Compile Include="Controllers\AtencionesController.cs" />
     <Compile Include="Controllers\AuditoriasController.cs" />
+    <Compile Include="Controllers\EnfermeriaController.cs" />
     <Compile Include="Controllers\ExaMedicoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -219,10 +221,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Admision.cs" />
+    <Compile Include="Models\AdmisionViewModel.cs" />
     <Compile Include="Models\Aptitud.cs" />
     <Compile Include="Models\Atenciones.cs" />
     <Compile Include="Models\Auditoria.cs" />
     <Compile Include="Models\AuditoriaViewModel.cs" />
+    <Compile Include="Models\EnfermeriaViewModel.cs" />
     <Compile Include="Models\ExaMedico.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Interconsulta.cs" />
@@ -427,9 +432,11 @@
     <Content Include="Views\Auditorias\Details.cshtml" />
     <Content Include="Views\Auditorias\Edit.cshtml" />
     <Content Include="Views\Auditorias\Index.cshtml" />
+    <Content Include="Views\Enfermeria\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admision\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

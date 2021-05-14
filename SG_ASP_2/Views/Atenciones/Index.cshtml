@@ -56,7 +56,10 @@
 @foreach (var item in Model) {
     <tr>
         <td width="20px">
-            @Html.ActionLink("Medicina", "Medicina", new { id=item.IdAtenciones })
+            @Html.ActionLink("Medicina", "Medicina", new { id = item.IdAtenciones })
+            @Html.ActionLink("Auditoria", "Auditoria", new { id = item.IdAtenciones })
+            @Html.ActionLink("Enfermeria", "Enfermeria", new { id = item.IdAtenciones })
+            @Html.ActionLink("Admision", "Admision", new { id = item.IdAtenciones })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Local0)

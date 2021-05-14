@@ -189,6 +189,25 @@ namespace SG_ASP_2.Controllers
                 return RedirectToAction("Create", "Medicina", new { Id = Id });
             }
         }
+
+        public ActionResult Auditoria(int Id)
+        {
+            var atencion = db.Atenciones.Find(Id);
+            if (atencion.Auditorias.Count != 0)
+            {
+                return RedirectToAction("Details", "Auditorias", new { Id = Id });
+            }
+            else
+            {
+                return RedirectToAction("Create", "Auditorias", new { Id = Id });
+            }
+        }
+
+        public ActionResult Enfermeria(int Id) 
+        {
+            return RedirectToAction("Create", "Enfermeria", new { Id = Id });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
