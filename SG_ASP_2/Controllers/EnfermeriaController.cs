@@ -21,6 +21,10 @@ namespace SG_ASP_2.Controllers
         {
             var atenciones = db.Atenciones.Find(Id);
             EnfermeriaViewModel viewModel = new EnfermeriaViewModel();
+
+            ViewBag.DocIde = atenciones.DocIde;
+            ViewBag.NomApe = atenciones.NomApe;
+            ViewBag.Empres = atenciones.Empres;
             if (atenciones.Interconsultas.Count==0)
             {
                 return HttpNotFound("No se Crearon interconsultas");

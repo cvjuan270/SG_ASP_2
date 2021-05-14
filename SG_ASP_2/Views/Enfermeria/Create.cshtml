@@ -11,7 +11,22 @@
 {
     @Html.AntiForgeryToken()
 
+    <div>
+        <dl class="row">
+            <dt class="col-sm-3 text-right">ID</dt>
+            <dd class="col-sm-9 text-left"> @Html.TextBoxFor(model => model.Interconsultas.First().IdAtenciones, new { @readonly = "readonly", @With = "100", @class = "form-control" })
 
+            <dt class="col-sm-3 text-right">Documento de identidad</dt>
+            <dd class="col-sm-9 text-left">@Html.DisplayText("DocIde")</dd>
+
+            <dt class="col-sm-3 text-right">Nombre y apellido</dt>
+            <dd class="col-sm-9 text-left">@Html.DisplayText("NomApe")</dd>
+
+            <dt class="col-sm-3 text-right">Empresa</dt>
+            <dd class="col-sm-9 text-left">@Html.DisplayText("Empres")</dd>
+        </dl>
+    </div>
+    <br />
     <div class="form-horizontal">
         <h4 class="glyphicon-subtitles">Enfermería</h4>
         <hr />
